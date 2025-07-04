@@ -12,7 +12,7 @@ public class CreateCandidateUseCase {
 
     @Autowired
     private CandidateRepository candidateRepository;
-
+    
     @SuppressWarnings("unused")
     public CandidateEntity execute(CandidateEntity candidateEntity) {
         this.candidateRepository
