@@ -30,7 +30,7 @@ public class CompanyEntity {
     @Email(message = "This field must contain a valid email address!")
     private String email;
 
-    @Length(min = 6, max = 24, message = "This field must contain 6 to 24 characters!")
+    @Length(min = 6, message = "This field must contain at least 6 characters!")
     private String password;
 
     private String website;
