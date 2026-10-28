@@ -1,0 +1,233 @@
+{
+  "_type": "export",
+  "__export_format": 4,
+  "__export_date": "2026-10-28T22:00:00.000Z",
+  "__export_source": "insomnia.desktop.app:v10.0.0",
+  "resources": [
+    {
+      "_id": "wrk_gestao_vagas",
+      "parentId": null,
+      "modified": 1730152800000,
+      "created": 1730152800000,
+      "name": "Gestão de Vagas",
+      "description": "Endpoints da API Gestão de Vagas (Spring Boot)",
+      "scope": "collection",
+      "_type": "workspace"
+    },
+    {
+      "_id": "env_gestao_vagas",
+      "parentId": "wrk_gestao_vagas",
+      "modified": 1730152800000,
+      "created": 1730152800000,
+      "name": "Base Environment",
+      "data": {
+        "base_url": "http://localhost:8080",
+        "company_token": ""
+      },
+      "dataPropertyOrder": {
+        "&": [
+          "base_url",
+          "company_token"
+        ]
+      },
+      "color": "#7d69cb",
+      "isPrivate": false,
+      "metaSortKey": 1730152800000,
+      "_type": "environment"
+    },
+    {
+      "_id": "fld_candidate",
+      "parentId": "wrk_gestao_vagas",
+      "modified": 1730152800000,
+      "created": 1730152800000,
+      "name": "Candidato",
+      "description": "",
+      "environment": {},
+      "environmentPropertyOrder": null,
+      "metaSortKey": -100,
+      "_type": "request_group"
+    },
+    {
+      "_id": "req_create_candidate",
+      "parentId": "fld_candidate",
+      "modified": 1730152800000,
+      "created": 1730152800000,
+      "url": "{{ _.base_url }}/candidate/",
+      "name": "Criar Candidato",
+      "description": "Cria um novo candidato no sistema",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"name\": \"Carlos Alberto\",\n  \"username\": \"carlosdev\",\n  \"email\": \"carlos@email.com\",\n  \"password\": \"123456\",\n  \"description\": \"Desenvolvedor Java Backend\",\n  \"curriculum\": \"https://linkedin.com/in/...\"\n}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -100,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_auth_candidate",
+      "parentId": "fld_candidate",
+      "modified": 1730152800000,
+      "created": 1730152800000,
+      "url": "{{ _.base_url }}/auth/candidate",
+      "name": "Login Candidato",
+      "description": "Autentica um candidato. Nota: no código DTO o campo de senha é 'passowrd'.",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"username\": \"carlosdev\",\n  \"passowrd\": \"123456\"\n}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -90,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "fld_company",
+      "parentId": "wrk_gestao_vagas",
+      "modified": 1730152800000,
+      "created": 1730152800000,
+      "name": "Empresa",
+      "description": "",
+      "environment": {},
+      "environmentPropertyOrder": null,
+      "metaSortKey": -90,
+      "_type": "request_group"
+    },
+    {
+      "_id": "req_create_company",
+      "parentId": "fld_company",
+      "modified": 1730152800000,
+      "created": 1730152800000,
+      "url": "{{ _.base_url }}/company/",
+      "name": "Criar Empresa",
+      "description": "Cadastra uma nova empresa no sistema",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"name\": \"Tech Solutions\",\n  \"username\": \"techsolutions\",\n  \"email\": \"contato@techsolutions.com\",\n  \"password\": \"123456\",\n  \"website\": \"https://techsolutions.com\",\n  \"description\": \"Empresa de tecnologia e inovação\"\n}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -100,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_auth_company",
+      "parentId": "fld_company",
+      "modified": 1730152800000,
+      "created": 1730152800000,
+      "url": "{{ _.base_url }}/auth/company",
+      "name": "Login Empresa",
+      "description": "Autentica uma empresa e retorna o token JWT para ser usado na criação de vagas",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"username\": \"techsolutions\",\n  \"password\": \"123456\"\n}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -90,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "fld_jobs",
+      "parentId": "wrk_gestao_vagas",
+      "modified": 1730152800000,
+      "created": 1730152800000,
+      "name": "Vagas (Jobs)",
+      "description": "",
+      "environment": {},
+      "environmentPropertyOrder": null,
+      "metaSortKey": -80,
+      "_type": "request_group"
+    },
+    {
+      "_id": "req_create_job",
+      "parentId": "fld_jobs",
+      "modified": 1730152800000,
+      "created": 1730152800000,
+      "url": "{{ _.base_url }}/job/",
+      "name": "Criar Vaga (Job)",
+      "description": "Cria uma nova vaga associada à empresa autenticada. Requer Token Bearer da Empresa.",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"description\": \"Vaga Desenvolvedor Java Junior\",\n  \"benefits\": \"Gympass, Vale Refeição, Plano de Saúde\",\n  \"level\": \"JUNIOR\"\n}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "authentication": {
+        "type": "bearer",
+        "token": "{{ _.company_token }}"
+      },
+      "metaSortKey": -100,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    }
+  ]
+}
